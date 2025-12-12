@@ -2,7 +2,7 @@
 title: "From Baseline to Structural Break Model: Inference for Weekly Unemployment Insurance Claims"
 subtitle: "Analysis of California Unemployment Data from 1987 to 2023"
 author: "Nora Adadurova"
-thanks: "Project repository available at: ..."
+thanks: "Project repository available at: [https://github.com/AdaNora22/final_project_Math-261A/tree/main](https://github.com/AdaNora22/final_project_Math-261A/tree/main)."
 date: 12/10/2025
 date-format: long
 # abstract: "Abstract here."
