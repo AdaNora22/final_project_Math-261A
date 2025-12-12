@@ -1,6 +1,6 @@
-# Final Project – Math 261A
+# Final Project for Math 261A
 
-**Course:** Math 261A – Applied Time Series Analysis  
+**Course:** Math 261A - Applied Time Series Analysis  
 **Institution:** San José State University  
 **Author:** Nora Adadurova  
 **Date of Submission:** December 2025  
@@ -60,6 +60,7 @@ External resources, including Large Language Models (LLMs) such as ChatGPT, were
 Specifically, LLMs were used for:
 - Spelling, grammar, and clarity checks in written explanations
 - Minor code debugging and formatting assistance
+- Used for help with making correct formate for README.html file
 
 All primary ideas, modeling decisions, analytical direction, and interpretation of results were developed independently by the author based on coursework knowledge from Math 261A and Math 265. No external tools were used to design models, select methods, perform statistical inference, or draw substantive conclusions.
 
