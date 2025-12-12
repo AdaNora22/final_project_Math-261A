@@ -19,12 +19,23 @@ The analysis emphasizes interpretability, correct model specification, and repro
 
 ```text
 final_project_Math-261A/
-├── README.md                # Project description and documentation
-├── final_project.qmd        # Main Quarto analysis and report
-├── data/                    # Input datasets used in the analysis
-├── scripts/                 # Supporting R scripts (if applicable)
-├── figures/                 # Generated figures and plots
-└── final_project.Rproj      # RStudio project file
+├── README.md                     # Project documentation and disclosures
+├── Project_2.Rproj               # RStudio project file
+├── .gitignore                    # Git ignore rules
+│
+├── code/                         # R scripts for data processing and modeling
+│   ├── data_cleaning.R
+│   ├── data_analysis.R
+│   └── code_modeling.R
+│
+├── data/                         # Input and processed datasets
+│   ├── unemployment_data.csv
+│   └── clean_unemployment_data.csv
+│
+└── paper/                        # Final paper and supporting files
+    ├── paper.qmd                 # Quarto source file
+    ├── paper.pdf                 # Rendered final report
+    └── references.bib            # Bibliography file
 ```
 
 # Dataset Source
