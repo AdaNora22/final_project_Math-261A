@@ -55,7 +55,7 @@ Before building regression models, it is important to understand the behavior of
 #| echo: false
 #| fig-cap: "Weekly insured unemployment rate (IUR) in California from 1987 through 2023 is shown as the black time-series line. The coral shaded regions represent officially recognized U.S. recession periods (1990–91, 2001, 2007–09, and 2020)"
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 72%
 #| fig-pos: "H"
 knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/overall_IU_with_econ_stress.png")
 ```
@@ -66,7 +66,7 @@ A simple time-series plot (@fig-iur-recessions) immediately highlights the major
 #| echo: false
 #| fig-cap: "The distribution compareson of the insured unemployment rate across recession periods and non-recession years."
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 72%
 #| fig-pos: "H"
 knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/recession_vs_non_recession_plot.png")
 ```
@@ -78,7 +78,7 @@ When averaging across periods (Figure 2), the insured unemployment rate increase
 #| echo: false
 #| fig-cap: "The figure shows the distributions of initial and continued unemployment claims (blue) and their percent rate equivalents (orange)."
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 95%
 #| fig-pos: "H"
 knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/combined_hist.png")
 ```
@@ -90,7 +90,7 @@ Histograms of initial claims, continued claims, and their corresponding rates (F
 #| echo: false
 #| fig-cap: "Monthly boxplots of the initial claims rate, illustrating modest but recurring seasonal patterns."
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 72%
 #| fig-pos: "H"
 knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/initial_claims_rate_plot.png")
 ```
@@ -126,7 +126,7 @@ Diagnostic results show (Figure 5) that this baseline model violates several key
 #| echo: false
 #| fig-cap: "This is the standard OLS diagnostic plots for the baseline regression, showing systematic patterns in the residuals, heavy-tailed deviations from normality, increasing variance with fitted values, and several influential observations."
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 85%
 #| fig-pos: "H"
 knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/assumptions_plot.png")
 ```
@@ -331,18 +331,27 @@ advanced_model_breaks <- lm(
 
 plot_df <- unemployment_lagged_term |>
   mutate(Fitted = fitted(advanced_model_breaks)) |>
-  dplyr::select(Filed.week.ended, Observed = Initial.Claims.Rate, Fitted) |>
+  dplyr::select(Filed.week.ended, 
+                Observed = Initial.Claims.Rate, Fitted) |>
   rename(Date = Filed.week.ended)
 
-ggplot(plot_df, aes(x = Date)) +
-  geom_line(aes(y = Observed, color = "Observed"), linewidth = 0.6) +
-  geom_line(aes(y = Fitted, color = "Fitted"), linewidth = 0.6, linetype = "dashed") +
+ggplot(plot_df, 
+       aes(x = Date)) +
+  geom_line(aes(y = Observed, 
+                color = "Observed"), 
+            linewidth = 0.6) +
+  geom_line(aes(y = Fitted, 
+                color = "Fitted"), 
+            linewidth = 0.6, 
+            linetype = "dashed") +
   labs(
     title = "Observed vs. Fitted Initial Claims Rate",
     x = "Time",
     y = "Initial Claims Rate",
     color = ""
   ) +
+  scale_color_manual(values = c("Observed" = "steelblue", 
+                                "Fitted" = "coral")) +
   theme_minimal()
 ```
 
@@ -369,11 +378,10 @@ Future extensions could explore nonlinear dynamics, regime-switching models, or 
 ### Future Extensions
 Hence, the possible future research could extend this analysis by adopting fully specified time-series frameworks, such as ARIMA or state-space models, which explicitly model serial correlation and evolving variance structures. Regime-switching or threshold models could further capture differences between normal economic conditions and crisis periods. Additional extensions could incorporate real-time policy changes, eligibility rules, or demographic heterogeneity to better understand how different groups interact with the unemployment insurance system.
 
-### Software
+# Software
 
-All analyses were conducted in R with dplyr for wrangling, ggplot2 + ggpubr for graphics, broom for model augmentations.
+All analyses were conducted in R [@R_language]. Data wrangling and date handling used dplyr, tidyr, and lubridate. Visualizations were created using ggplot2. Model estimation and diagnostics used stats, glmnet, MASS, car, and DescTools.
 
 \newpage
 
 # References
----
